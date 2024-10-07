@@ -1,5 +1,7 @@
+import { JSXElementConstructor } from "react";
+
 export interface FeatureCardProps {
-  logos?: React.ReactNode;
+  Logos?: React.ReactNode | any | JSXElementConstructor<any>;
   title?: string;
   decs?: string;
 }

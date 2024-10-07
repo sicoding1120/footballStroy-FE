@@ -37,7 +37,7 @@ const LeftAside = () => {
           fugit assumenda laborum magni odit quia voluptatum natus aliquid nisi?
           Soluta cumque esse qui debitis velit!
         </p>
-        <Button variant={"custom"}>get more</Button>
+        <Button variant={"customAbout"}>get more</Button>
       </div>
     </div>
   );
@@ -45,7 +45,7 @@ const LeftAside = () => {
 
 const RightAside = () => {
   return (
-    <div className="w-1/2 flex justify-center items-center px-24 py-14 bg-white">
+    <div className="w-1/2 flex justify-center items-center px-24 pt-14 pb-8 bg-white">
       <div className="w-full h-full grid grid-cols-2 gap-2">
         {ImageBoxData.map((items: ImageBoxProps, index: number) => (
           <div
