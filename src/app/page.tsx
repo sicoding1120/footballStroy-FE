@@ -3,6 +3,7 @@ import Brand from "@/components/landing/brand-section";
 import Features from "@/components/landing/features-section";
 import HeroSec from "@/components/landing/hero-section";
 import React, { useEffect, useRef } from "react";
+import About from "@/components/landing/about-section";
 
 export default function Home() {
   const audioRef = useRef(null); // Refs untuk mengakses elemen audio
@@ -37,8 +38,4 @@ export default function Home() {
   );
 }
 
-const About = () => {
-  return (
-    <section className="w-full h-screen bg-white relative z-[9]"></section>
-  );
-};
+

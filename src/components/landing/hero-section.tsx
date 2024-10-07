@@ -47,12 +47,12 @@ const HeroSec = () => {
   return (
     <div className="w-full h-screen">
       <div className="w-full h-screen absolute z-[10] bg-black/55 flex flex-col gap-6 items-center justify-center px-24">
-        <div className=" p-4 rounded-md flex flex-col gap-8 justify-center items-center">
-          <h2 className="text-6xl w-full font-semibold text-white capitalize text-center ">
+        <div className="p-4 rounded-md flex flex-col gap-8 justify-center items-center">
+          <h2 className="md:text-6xl text-3xl w-full font-semibold text-white capitalize text-center ">
             wellcome to{" "}
-            <span className="text-[4rem] text-bg2">footballStory</span>{" "}
+            <span className="md:text-[4rem] text-5xl text-bg2">footballStory</span>{" "}
           </h2>
-          <p className="text-sm w-2/3  text-white capitalize text-center">
+          <p className="text-sm md:w-2/3 w-full  text-white capitalize text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
             laudantium cum eius vero? Exercitationem eaque repellat mollitia
             temporibus magni deserunt laboriosam minus, similique voluptatum
@@ -60,7 +60,7 @@ const HeroSec = () => {
           </p>
           <div className="flex gap-6 ">
             <ButtonStart href={"/auth/sign-in"} typeBtn="redirect">
-              <button className="bg-bg2 text-colors-bg2 shadow rounded-full btn hover:bg-bg2/60 cursor-pointer border-none px-24">
+              <button className="bg-bg2 text-colors-bg2 shadow rounded-full btn hover:bg-bg2/60 cursor-pointer border-none md:px-24 px-16">
                 Get Started
               </button>
             </ButtonStart>
