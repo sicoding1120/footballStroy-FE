@@ -1,0 +1,3 @@
+list :
+  - bikin clean code page brand.tsx
+  - lanjutin halaman 

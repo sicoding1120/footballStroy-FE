@@ -25,7 +25,7 @@ const Features = () => {
 
 const CardFeature = ({ Logos, title, decs }: FeatureCardProps) => {
   return (
-    <div className="w-full h-[300px] 0 flex flex-col gap-6 md:items-start items-center justify-center py-4  px-4 rounded-xl hover:scale-105 transition-all group">
+    <div className="w-full h-[300px] 0 flex flex-col gap-6 md:items-start items-center justify-center py-4  px-4 rounded-xl hover:scale-105 transition-all group cursor-default">
       <div className="w-16 h-16 bg-bg2 rounded-xl flex justify-center items-center group-hover:rotate-45 transition-all">
         <Logos
           size={36}

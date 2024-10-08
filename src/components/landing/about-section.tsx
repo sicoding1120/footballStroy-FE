@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 
 const About = () => {
   return (
-    <section className="w-full h-full bg-white relative z-[9] flex pt-24">
+    <section className="w-full h-full bg-white relative z-[9] flex md:flex-row flex-col-reverse pt-24">
       <LeftAside />
       <RightAside />
     </section>
@@ -17,18 +17,18 @@ const About = () => {
 
 const LeftAside = () => {
   return (
-    <div className="w-1/2 px-14 py-24 flex items-center">
+    <div className="md:w-1/2 md:px-14 px-4 py-24 flex items-center  bg-bgAbout2 bg-cover">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <p className="text-md text-slate-400 ml-2 uppercase font-bold">
+          <p className="text-md text-slate-400 ml-2 uppercase font-bold text-center md:text-start">
             about
           </p>
-          <h2 className="text-5xl capitalize font-semibold">
+          <h2 className="text-5xl capitalize font-semibold text-center md:text-start">
             {" "}
             about FootballStory
           </h2>
         </div>
-        <p>
+        <p className="text-center md:text-start">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
           deserunt atque adipisci odio dolorem ex! Reiciendis sapiente labore
           vero. Adipisci expedita, aut sint voluptatibus facilis sapiente
@@ -37,7 +37,9 @@ const LeftAside = () => {
           fugit assumenda laborum magni odit quia voluptatum natus aliquid nisi?
           Soluta cumque esse qui debitis velit!
         </p>
-        <Button variant={"customAbout"}>get more</Button>
+        <div className="flex justify-center md:justify-start">
+          <Button variant={"customAbout"}>get more</Button>
+        </div>
       </div>
     </div>
   );
@@ -45,11 +47,11 @@ const LeftAside = () => {
 
 const RightAside = () => {
   return (
-    <div className="w-1/2 flex justify-center items-center px-24 pt-14 pb-8 bg-white">
-      <div className="w-full h-full grid grid-cols-2 gap-2">
+    <div className="md:w-1/2 flex justify-center items-center md:px-24 px-4 md:pt-14 pb-8 bg-bgAbout bg-cover">
+      <div className="w-full h-full grid md:grid-cols-2 grid-cols-2 md:gap-2 gap-4">
         {ImageBoxData.map((items: ImageBoxProps, index: number) => (
           <div
-            className=" w-full h-[350px] rounded-2xl overflow-hidden"
+            className=" w-full md:h-[350px] h-[300px] rounded-2xl overflow-hidden"
             key={index}
           >
             <ImageBox

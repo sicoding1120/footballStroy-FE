@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         customAbout:
-          " btn hover:bg-black hover:text-bg2 border-none bg-bg2 text-black font-semibold px-24 w-1/2 capitalize rounded-full",
+          " btn hover:bg-black hover:text-bg2 border-none bg-bg2 text-black font-semibold px-24 md:w-1/2 w-3/4 capitalize rounded-full",
         customHero:
           "bg-bg2 text-colors-bg2 shadow rounded-full btn hover:bg-black hover:text-bg2 font-semibold cursor-pointer border-none md:px-24 px-16",
       },
