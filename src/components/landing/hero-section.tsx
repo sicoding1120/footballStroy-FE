@@ -114,7 +114,7 @@ const HeroTopic = () => {
     <div className="w-full h-screen absolute z-[10] bg-black/55 flex flex-col gap-6 items-center justify-center px-24">
       <div className="p-4 rounded-md flex flex-col gap-8 justify-center items-center">
         <h2 className="md:text-6xl text-3xl w-full font-semibold text-white capitalize text-center ">
-          wellcome to{" "}
+          welcome to{" "}
           <span className="md:text-[4rem] text-5xl text-bg2">
             footballStory
           </span>{" "}
