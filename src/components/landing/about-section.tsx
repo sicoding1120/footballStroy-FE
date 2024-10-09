@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 
 const About = () => {
   return (
-    <section className="w-full h-full bg-white relative z-[9] flex md:flex-row flex-col-reverse pt-24">
+    <section className="w-full h-full bg-white relative z-[9] flex md:flex-row-reverse flex-col-reverse pt-24">
       <LeftAside />
       <RightAside />
     </section>
@@ -17,7 +17,7 @@ const About = () => {
 
 const LeftAside = () => {
   return (
-    <div className="md:w-1/2 md:px-14 px-4 py-24 flex items-center  bg-bgAbout2 bg-cover">
+    <div className="md:w-1/2 md:px-14 px-4 py-24 flex items-center  bg-bgAbout bg-cover">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <p className="text-md text-slate-400 ml-2 uppercase font-bold text-center md:text-start">
@@ -47,7 +47,7 @@ const LeftAside = () => {
 
 const RightAside = () => {
   return (
-    <div className="md:w-1/2 flex justify-center items-center md:px-24 px-4 md:pt-14 pb-8 bg-bgAbout bg-cover">
+    <div className="md:w-1/2 flex justify-center items-center md:px-24 px-4 md:pt-14 pb-8 bg-bgAbout2 bg-cover">
       <div className="w-full h-full grid md:grid-cols-2 grid-cols-2 md:gap-2 gap-4">
         {ImageBoxData.map((items: ImageBoxProps, index: number) => (
           <div

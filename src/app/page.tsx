@@ -4,6 +4,9 @@ import Features from "@/components/landing/features-section";
 import HeroSec from "@/components/landing/hero-section";
 import React, { useEffect, useRef } from "react";
 import About from "@/components/landing/about-section";
+import PricingPage from "@/components/landing/pricing-section";
+import Faq from "@/components/landing/faq-section";
+import Navbar from "@/components/landing/navbar-element";
 
 export default function Home() {
   const audioRef = useRef(null); // Refs untuk mengakses elemen audio
@@ -27,12 +30,16 @@ export default function Home() {
     };
   }, [currentSoundIndex]);
 
+
   return (
     <main className="w-full h-full">
+      <Navbar/>
       <HeroSec />
       <Features />
       <Brand />
       <About />
+      <PricingPage />
+      <Faq />
       <audio ref={audioRef} />
     </main>
   );
