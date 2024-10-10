@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <HeaderFixed bool={bool} />
+      {/* <HeaderFixed bool={bool} /> */}
       <HeaderScroll bool={bool} scrollY={scrollY} />
     </>
   );

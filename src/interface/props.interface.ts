@@ -27,3 +27,16 @@ export interface ListPricingProps {
   className?: string;
   classNameIcons?:string
 }
+
+
+export interface FormItemComponentsProps {
+  name: "email" | "password" | "username";
+  field: any;
+  useDecs: boolean;
+  decs?: string;
+}
+
+export interface FormFieldComponenstProps {
+  name: "email" | "password" | "username";
+  form: any;
+}

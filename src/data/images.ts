@@ -29,3 +29,4 @@ export  const imagesPlayer = [
   "https://i.pinimg.com/474x/51/23/30/512330b2b4fb0518ed3948d4c0cd0b7f.jpg",
   "https://i.pinimg.com/474x/88/d9/67/88d967fb396b2a83cc73cc0c572c70e8.jpg",
 ];
+

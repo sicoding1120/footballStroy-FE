@@ -23,14 +23,13 @@ const buttonVariants = cva(
           " btn hover:bg-black hover:text-bg2 border-none bg-bg2 text-black font-semibold px-24 md:w-1/2 w-3/4 capitalize rounded-full",
         customHero:
           "bg-bg2 text-colors-bg2 shadow rounded-full btn hover:bg-black hover:text-bg2 font-semibold cursor-pointer border-none md:px-24 px-16",
-        customNavbar: "bg-bg2 text-black rounded-xl btn hover:bg-black hover:text-bg2 border-none px-14"
+        customNavbar:
+          "bg-bg2 text-black rounded-xl btn hover:bg-black hover:text-bg2 border-none px-14",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
-        xl: "h-12 rounded-md px-8",
-        xxl: "h-14 rounded-md px-8",
         icon: "h-9 w-9",
       },
     },
