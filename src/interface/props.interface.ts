@@ -1,4 +1,5 @@
-import { JSXElementConstructor } from "react";
+import React, { JSXElementConstructor } from "react";
+import AuthLayout from "../layouts/auth";
 
 export interface FeatureCardProps {
   Logos?: React.ReactNode | any | JSXElementConstructor<any>;
@@ -25,9 +26,8 @@ export interface ListPricingProps {
   title: string | any;
   type: "access" | "notAccess";
   className?: string;
-  classNameIcons?:string
+  classNameIcons?: string;
 }
-
 
 export interface FormItemComponentsProps {
   name: "email" | "password" | "username";
@@ -39,4 +39,38 @@ export interface FormItemComponentsProps {
 export interface FormFieldComponenstProps {
   name: "email" | "password" | "username";
   form: any;
+}
+
+export interface FormElementProps {
+  children: React.ReactNode;
+  form:any
+}
+
+export interface FormFieldElementProps {
+  name: string;
+  decs?: string;
+  typeForm: "decs" | "normal";
+  typeInput: string;
+  form:any
+}
+
+export interface InputSideProps {
+  title: string;
+  onSubmit: any;
+  children: React.ReactNode;
+  form:any
+}
+
+export interface LeftSideProps {
+  name: string;
+  children: React.ReactNode;
+  onSubmit: any;
+  form:any
+}
+
+export interface AuthLayoutProps {
+  name: string;
+  children: React.ReactNode;
+  onSubmit: any;
+  form:any
 }
