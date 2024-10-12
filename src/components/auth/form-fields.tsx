@@ -16,6 +16,7 @@ const FormFieldElement = ({
   typeForm,
   typeInput,
   form,
+  placeholder
 }: FormFieldElementProps) => {
   if (typeForm == "decs") {
     return (
@@ -26,7 +27,7 @@ const FormFieldElement = ({
           <FormItem>
             <FormLabel>{name}</FormLabel>
             <FormControl>
-              <Input placeholder="shadcn" {...field} className="h-14" />
+              <Input placeholder={placeholder} {...field} className="h-14" />
             </FormControl>
             <FormDescription>{decs}</FormDescription>
             <FormMessage />
@@ -45,7 +46,7 @@ const FormFieldElement = ({
           <FormLabel>{name}</FormLabel>
           <FormControl>
             <Input
-              placeholder="shadcn"
+              placeholder={placeholder}
               {...field}
               type={typeInput}
               className="h-12"

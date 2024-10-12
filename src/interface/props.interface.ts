@@ -1,5 +1,4 @@
 import React, { JSXElementConstructor } from "react";
-import AuthLayout from "../layouts/auth";
 
 export interface FeatureCardProps {
   Logos?: React.ReactNode | any | JSXElementConstructor<any>;
@@ -51,7 +50,8 @@ export interface FormFieldElementProps {
   decs?: string;
   typeForm: "decs" | "normal";
   typeInput: string;
-  form:any
+  form: any
+  placeholder:string
 }
 
 export interface InputSideProps {
@@ -65,12 +65,14 @@ export interface LeftSideProps {
   name: string;
   children: React.ReactNode;
   onSubmit: any;
-  form:any
+  form: any
+  link:string
 }
 
 export interface AuthLayoutProps {
   name: string;
   children: React.ReactNode;
   onSubmit: any;
-  form:any
+  form: any
+  link:string
 }

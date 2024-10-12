@@ -4,8 +4,9 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import FormElement from "../auth/form-element";
 import { InputSideProps, LeftSideProps } from "@/interface/props.interface";
+import Link from "next/link";
 
-const LeftSide = ({ name, children, onSubmit, form }: LeftSideProps) => {
+const LeftSide = ({ name, children, onSubmit, form, link }: LeftSideProps) => {
   return (
     <section className="w-1/2 h-full flex flex-col justify-center gap-8 px-12 py-8">
       <BreadcrumbsElement root={name} />
@@ -18,6 +19,7 @@ const LeftSide = ({ name, children, onSubmit, form }: LeftSideProps) => {
         {children}
       </InputSide>
       <ButtonSide />
+      <p className="flex text-center gap-2 w-full pr-20 justify-center">{name == "Sign In" ? "Don't have an account?" : "Already have an account?"} <Link href={link} className="text-blue-500  underline">{name == "Sign In" ? "Sign Up" : "Sign In"}</Link></p>
     </section>
   );
 };

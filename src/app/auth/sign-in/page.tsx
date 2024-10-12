@@ -7,6 +7,7 @@ import { SignInSchema } from "@/lib/schema.zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import axios from "axios";
 
 const SignIn = () => {
   const form = useForm<z.infer<typeof SignInSchema>>({
@@ -26,17 +27,29 @@ const SignIn = () => {
   console.log("Password:", password);
   console.log("values:", value);
 
-  const handleOnSubmit = () => {};
+  const handleOnSubmit = async (e: any) => {
+        e.preventDefault();
+    try {
+      const res = await axios.post(
+        "https://befootballstory.vercel.app/auth/login",
+        form.getValues()
+      );
+    } catch (error) {
+      if(error) throw error
+    }
+  };
 
   return (
-    <AuthLayout name={"Sign In"} form={form} onSubmit={handleOnSubmit}>
+    <AuthLayout name={"Sign In"} form={form} onSubmit={handleOnSubmit} link="/auth/sign-up">
       <FormFieldElement
+        placeholder="your email"
         form={form.control}
         name={"email"}
         typeForm={"normal"}
         typeInput={"email"}
       />
       <FormFieldElement
+        placeholder="your password"
         form={form.control}
         name={"password"}
         typeForm={"normal"}
