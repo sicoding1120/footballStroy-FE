@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import AuthLayout from "@/layouts/auth";
 import FormFieldElement from "@/components/auth/form-fields";
 import { SignInSchema } from "@/lib/schema.zod";
@@ -20,8 +20,10 @@ const SignIn = () => {
     },
   });
 
-  const value = form.getValues();
-  setData(value);
+  useEffect(() => {
+    const formData = form.getValues(); // Ambil nilai form langsung
+    setData(formData);
+  }, [form]);
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();

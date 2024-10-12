@@ -5,7 +5,7 @@ import AuthLayout from "@/layouts/auth";
 import { SignUpSchema } from "@/lib/schema.zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -21,8 +21,10 @@ const SignUp = () => {
     },
   });
 
-  const formData = form.getValues(); // Ambil nilai form langsung
-  setData(formData);
+  useEffect(() => {
+    const formData = form.getValues(); // Ambil nilai form langsung
+    setData(formData);
+  }, [form]);
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
