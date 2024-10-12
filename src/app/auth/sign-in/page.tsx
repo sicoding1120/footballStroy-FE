@@ -10,7 +10,7 @@ import { z } from "zod";
 import axios from "axios";
 
 const SignIn = () => {
-    const [data, setData] = React.useState<any>();
+  const [data, setData] = React.useState<any>();
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
     mode: "all",
@@ -30,9 +30,13 @@ const SignIn = () => {
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
-        setData(form.getValues());
-
-    await axios.post("https://fsbackends.vercel.app/auth/login", data);
+    setData(form.getValues());
+    try {
+       const response = await axios.post("https://fsbackends.vercel.app/auth/login", data);
+      console.log("User registered:", response.data);
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
