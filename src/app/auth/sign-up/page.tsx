@@ -21,9 +21,11 @@ const SignUp = () => {
     },
   });
 
+  const formData = form.getValues(); // Ambil nilai form langsung
+  setData(formData);
+
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
-    setData(form.getValues());
     try {
       const response = await axios.post(
         "https://fsbackends.vercel.app/auth/register",

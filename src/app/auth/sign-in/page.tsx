@@ -20,19 +20,16 @@ const SignIn = () => {
     },
   });
 
-  const email = form.watch("email");
-  const password = form.watch("password");
   const value = form.getValues();
-
-  console.log("Email:", email);
-  console.log("Password:", password);
-  console.log("values:", value);
+  setData(value);
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
-    setData(form.getValues());
     try {
-       const response = await axios.post("https://fsbackends.vercel.app/auth/login", data);
+      const response = await axios.post(
+        "https://fsbackends.vercel.app/auth/login",
+        data
+      );
       console.log("User registered:", response.data);
     } catch (error) {
       console.error("Error during registration:", error);
