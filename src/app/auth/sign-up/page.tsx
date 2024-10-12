@@ -31,7 +31,7 @@ const SignUp = () => {
     try {
       const response = await axios.post(
         "https://fsbackends.vercel.app/auth/register",
-        data
+        form.getValues()
       );
       console.log("User registered:", response.data);
     } catch (error) {
