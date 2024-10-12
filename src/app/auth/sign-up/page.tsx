@@ -22,14 +22,11 @@ const SignUp = () => {
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
-    try {
       await axios.post(
-        "https://befootballstory.vercel.app/auth/register",
+        "https://fsbackends.vercel.app/auth/register",
         form.getValues()
-      );
-    } catch (error) {
-      if (error) throw error;
-    }
+    );
+    console.log('ok');
   };
 
   return (

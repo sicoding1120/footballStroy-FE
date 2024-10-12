@@ -28,19 +28,20 @@ const SignIn = () => {
   console.log("values:", value);
 
   const handleOnSubmit = async (e: any) => {
-        e.preventDefault();
-    try {
-      const res = await axios.post(
-        "https://befootballstory.vercel.app/auth/login",
-        form.getValues()
-      );
-    } catch (error) {
-      if(error) throw error
-    }
+    e.preventDefault();
+    const res = await axios.post(
+      "https://fsbackends.vercel.app/auth/login",
+      form.getValues()
+    );
   };
 
   return (
-    <AuthLayout name={"Sign In"} form={form} onSubmit={handleOnSubmit} link="/auth/sign-up">
+    <AuthLayout
+      name={"Sign In"}
+      form={form}
+      onSubmit={handleOnSubmit}
+      link="/auth/sign-up"
+    >
       <FormFieldElement
         placeholder="your email"
         form={form.control}
