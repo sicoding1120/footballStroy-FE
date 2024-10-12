@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignUp = () => {
+  const [data,setData] = React.useState<any>();
   const form = useForm<z.infer<typeof SignUpSchema>>({
     resolver: zodResolver(SignUpSchema),
     mode: "all",
@@ -20,11 +21,14 @@ const SignUp = () => {
     },
   });
 
+
+
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
+    setData(form.getValues());
       await axios.post(
         "https://fsbackends.vercel.app/auth/register",
-        form.getValues()
+        data
     );
     console.log('ok');
   };
