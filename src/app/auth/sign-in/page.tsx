@@ -26,25 +26,26 @@ const SignIn = () => {
   }, [form]);
 
   const handleOnSubmit = async (e: any) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "https://fsbackends.vercel.app/auth/login",
-        {
-          email: form.getValues().email,
-          password: form.getValues().password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true, // Jika menggunakan cookie di backend
-        }
-      );
-      console.log("User registered:", response.data);
-    } catch (error) {
-      console.error("Error during registration:", error);
-    }
+     try {
+       const response = await axios.post(
+         "https://fsbackends.vercel.app/auth/login",
+         form.getValues() // pastikan data sesuai dengan yang diperlukan untuk login
+       );
+
+       console.log("Login response data:", response.data);
+     } catch (error:any) {
+       if (error.response) {
+         // Respons error dari server
+         console.error("Error response data:", error.response.data);
+         console.error("Error status:", error.response.status);
+       } else if (error.request) {
+         // Request dikirim tetapi tidak ada respons
+         console.error("No response received:", error.request);
+       } else {
+         // Error lainnya
+         console.error("Error during login:", error.message);
+       }
+     }
   };
 
   return (
