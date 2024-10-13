@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://fsbackends.vercel.app", // Ganti dengan base URL backend kamu
+  baseURL: "https://footballstorybe.vercel.app", // Ganti dengan base URL backend kamu
   headers: {
     "Content-Type": "application/json",
   },
