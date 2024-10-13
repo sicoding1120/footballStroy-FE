@@ -30,7 +30,16 @@ const SignIn = () => {
     try {
       const response = await axios.post(
         "https://fsbackends.vercel.app/auth/login",
-        form.getValues()
+        {
+          email: form.getValues().email,
+          password: form.getValues().password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true, // Jika menggunakan cookie di backend
+        }
       );
       console.log("User registered:", response.data);
     } catch (error) {

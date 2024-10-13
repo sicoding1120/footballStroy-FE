@@ -4,6 +4,7 @@ import FormFieldElement from "@/components/auth/form-fields";
 import AuthLayout from "@/layouts/auth";
 import { SignUpSchema } from "@/lib/schema.zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { user } from "@nextui-org/theme";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -31,7 +32,17 @@ const SignUp = () => {
     try {
       const response = await axios.post(
         "https://fsbackends.vercel.app/auth/register",
-        form.getValues()
+        {
+          username: form.getValues().username,
+          email: form.getValues().email,
+          password: form.getValues().password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true, // Jika menggunakan cookie di backend
+        }
       );
       console.log("User registered:", response.data);
     } catch (error) {

@@ -1,4 +1,5 @@
 "use client";
+
 import Brand from "@/components/landing/brand-section";
 import Features from "@/components/landing/features-section";
 import HeroSec from "@/components/landing/hero-section";
