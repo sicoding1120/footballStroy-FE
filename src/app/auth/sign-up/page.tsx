@@ -31,11 +31,15 @@ const SignUp = () => {
    e.preventDefault();
 
    try {
-     const response = await axios.post(
-       "https://fsbackends.vercel.app/auth/register",
-       form.getValues() // pastikan struktur data sesuai dengan backend
-     );
-
+    const response = await axios.post(
+      "https://fsbackends.vercel.app/auth/register",
+      form.getValues(),
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
      console.log("Response data:", response.data); // log hasil dari server
    } catch (error:any) {
      if (error.response) {

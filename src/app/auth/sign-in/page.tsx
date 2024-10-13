@@ -27,10 +27,16 @@ const SignIn = () => {
 
   const handleOnSubmit = async (e: any) => {
      try {
-       const response = await axios.post(
-         "https://fsbackends.vercel.app/auth/login",
-         form.getValues() // pastikan data sesuai dengan yang diperlukan untuk login
-       );
+      const response = await axios.post(
+        "https://fsbackends.vercel.app/auth/login",
+        form.getValues(),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
 
        console.log("Login response data:", response.data);
      } catch (error:any) {
