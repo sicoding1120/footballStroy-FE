@@ -1,16 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
 import AuthLayout from "@/layouts/auth";
 import FormFieldElement from "@/components/auth/form-fields";
 import { SignInSchema } from "@/lib/schema.zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import axios from "axios";
+import axiosInstance from "@/lib/instance.axios";
 
 const SignIn = () => {
-  const [data, setData] = React.useState<any>();
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
     mode: "all",
@@ -20,38 +18,29 @@ const SignIn = () => {
     },
   });
 
-  useEffect(() => {
-    const formData = form.getValues(); // Ambil nilai form langsung
-    setData(formData);
-  }, [form]);
-
   const handleOnSubmit = async (e: any) => {
-     try {
-      const response = await axios.post(
-        "https://fsbackends.vercel.app/auth/login",
+       e.preventDefault();
+
+    try {
+      const response = await axiosInstance.post(
+        "/auth/login",
         form.getValues(),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
       );
 
-
-       console.log("Login response data:", response.data);
-     } catch (error:any) {
-       if (error.response) {
-         // Respons error dari server
-         console.error("Error response data:", error.response.data);
-         console.error("Error status:", error.response.status);
-       } else if (error.request) {
-         // Request dikirim tetapi tidak ada respons
-         console.error("No response received:", error.request);
-       } else {
-         // Error lainnya
-         console.error("Error during login:", error.message);
-       }
-     }
+      console.log("Login response data:", response.data);
+    } catch (error: any) {
+      if (error.response) {
+        // Respons error dari server
+        console.error("Error response data:", error.response.data);
+        console.error("Error status:", error.response.status);
+      } else if (error.request) {
+        // Request dikirim tetapi tidak ada respons
+        console.error("No response received:", error.request);
+      } else {
+        // Error lainnya
+        console.error("Error during login:", error.message);
+      }
+    }
   };
 
   return (

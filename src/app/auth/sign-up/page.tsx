@@ -1,17 +1,14 @@
-"use client";
+'use client';
 
 import FormFieldElement from "@/components/auth/form-fields";
 import AuthLayout from "@/layouts/auth";
+import axiosInstance from "@/lib/instance.axios";
 import { SignUpSchema } from "@/lib/schema.zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { user } from "@nextui-org/theme";
-import axios from "axios";
-import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignUp = () => {
-  const [data, setData] = React.useState<any>();
   const form = useForm<z.infer<typeof SignUpSchema>>({
     resolver: zodResolver(SignUpSchema),
     mode: "all",
@@ -22,23 +19,14 @@ const SignUp = () => {
     },
   });
 
-  useEffect(() => {
-    const formData = form.getValues(); // Ambil nilai form langsung
-    setData(formData);
-  }, [form]);
-
  const handleOnSubmit = async (e: any) => {
    e.preventDefault();
 
    try {
-    const response = await axios.post(
-      "https://fsbackends.vercel.app/auth/register",
+    const response = await axiosInstance.post(
+      "/auth/register",
       form.getValues(),
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      
     );
      console.log("Response data:", response.data); // log hasil dari server
    } catch (error:any) {
