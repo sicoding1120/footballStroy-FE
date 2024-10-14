@@ -24,11 +24,11 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
+      toast.info("waiting response....");
       const response = await axiosInstance.post(
         "/auth/login",
         form.getValues()
       );
-      toast.info("waiting response....");
       console.log("Response data:", response);
       toast.success("Sign Up Success");
     } catch (error: any) {

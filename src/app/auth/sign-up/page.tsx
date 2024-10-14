@@ -27,16 +27,16 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
+      toast.info("waiting response....")
       const response = await axiosInstance.post(
         "/auth/register",
         form.getValues()
       );
-      toast.info("waiting response....")
       console.log("Response data:", response);
       toast.success("Sign Up Success");
       setTimeout(() => {
         router.push("/auth/sign-in");
-      }, 3000);
+      }, 5000);
     } catch (error: any) {
       if (error.response) {
         // Respons error dari server
