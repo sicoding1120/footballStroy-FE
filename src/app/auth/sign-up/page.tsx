@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const router = useRouter();
