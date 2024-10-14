@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axiosInstance from "@/lib/instance.axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignIn = () => {
   const form = useForm<z.infer<typeof SignInSchema>>({
@@ -19,26 +20,25 @@ const SignIn = () => {
   });
 
   const handleOnSubmit = async (e: any) => {
-       e.preventDefault();
+    e.preventDefault();
 
     try {
       const response = await axiosInstance.post(
         "/auth/login",
-        form.getValues(),
+        form.getValues()
       );
-
-      console.log("Login response data:", response.data);
+      console.log("Response data:", response);
+      toast.success("Sign Up Success");
     } catch (error: any) {
       if (error.response) {
         // Respons error dari server
-        console.error("Error response data:", error.response.data);
-        console.error("Error status:", error.response.status);
+        toast.error("error response data from server");
       } else if (error.request) {
         // Request dikirim tetapi tidak ada respons
-        console.error("No response received:", error.request);
+        toast.error("No response received from server");
       } else {
         // Error lainnya
-        console.error("Error during login:", error.message);
+        toast.error("Error during registration");
       }
     }
   };
@@ -64,6 +64,7 @@ const SignIn = () => {
         typeForm={"normal"}
         typeInput={"password"}
       />
+      <ToastContainer limit={5} />
     </AuthLayout>
   );
 };
