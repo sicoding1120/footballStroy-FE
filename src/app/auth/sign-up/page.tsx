@@ -31,6 +31,7 @@ const SignUp = () => {
         "/auth/register",
         form.getValues()
       );
+      toast.info("waiting response....")
       console.log("Response data:", response);
       toast.success("Sign Up Success");
       setTimeout(() => {
