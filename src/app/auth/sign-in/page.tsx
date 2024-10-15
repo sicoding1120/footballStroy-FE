@@ -9,8 +9,10 @@ import { z } from "zod";
 import axiosInstance from "@/lib/instance.axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
     mode: "all",
@@ -29,8 +31,23 @@ const SignIn = () => {
         "/auth/login",
         form.getValues()
       );
-      console.log("Response data:", response);
-      toast.success("Sign Up Success");
+      toast.success("Sign In Success");
+      setTimeout(() => {
+        const targetDomain = `https://footballstorydash.vercel.app/e/${response.data.data.id}`;
+        window.postMessage(response.data.data.access_token, targetDomain);
+        window.addEventListener("message", (event) => {
+          if (
+            event.origin === targetDomain
+          ) {
+            console.log("Pesan berhasil diproses oleh Frontend 2");
+          } else {
+            console.warn(
+              "Respons dari origin yang tidak sah atau data tidak sesuai"
+            );
+          }
+        });
+        router.push(targetDomain);
+      }, 2000)
     } catch (error: any) {
       if (error.response) {
         // Respons error dari server

@@ -32,11 +32,10 @@ const SignUp = () => {
         "/auth/register",
         form.getValues()
       );
-      console.log("Response data:", response);
       toast.success("Sign Up Success");
       setTimeout(() => {
         router.push("/auth/sign-in");
-      }, 5000);
+      }, 2000);
     } catch (error: any) {
       if (error.response) {
         // Respons error dari server
