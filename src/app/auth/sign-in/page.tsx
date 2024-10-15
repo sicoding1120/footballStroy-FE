@@ -31,6 +31,7 @@ const SignIn = () => {
       toast.success('Sign In Success')
 
       const accessToken = await response.data.data.access_token
+      console.log(response.data.data);
       window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
       setTimeout(() => {
         router.push(`https://footballstorydash.vercel.app/e/${response.data.data.id}`
