@@ -29,9 +29,10 @@ const SignIn = () => {
       toast.info('waiting response....')
       const response = await axiosInstance.post('/auth/login', form.getValues())
       toast.success('Sign In Success')
-      window.postMessage(
-        response.data.data.access_token,
-        'https://footballstorydash.vercel.app'      )
+
+      const accessToken = await response.data.data.access_token
+
+      window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
       setTimeout(() => {
         router.push(
           `https://footballstorydash.vercel.app/e/${response.data.data.id}`
