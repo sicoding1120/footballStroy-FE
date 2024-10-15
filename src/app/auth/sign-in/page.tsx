@@ -29,13 +29,14 @@ const SignIn = () => {
       toast.info('waiting response....')
       const response = await axiosInstance.post('/auth/login', form.getValues())
       toast.success('Sign In Success')
-      console.log(response.data)
-      const accessToken = await response.data.data.access_token
-      window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
-      //       setTimeout(() => {
-      //         router.push(`https://footballstorydash.vercel.app/e/${response.data.data.id}`
-      // )
-      // }, 2000)
+      console.log(response.data.data.access_token)
+      // const accessToken = await response.data.data.access_token
+      window.postMessage("ok", 'https://footballstorydash.vercel.app',response.data.data.access_token
+)
+            setTimeout(() => {
+              router.push(`https://footballstorydash.vercel.app/e/${response.data.data.id}`
+      )
+      }, 2000)
     } catch (error: any) {
       if (error.response) {
         // Respons error dari server
