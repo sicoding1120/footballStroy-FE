@@ -32,14 +32,6 @@ const SignIn = () => {
 
       const accessToken = response.data.data.access_token
       const targetDomain = `https://footballstorydash.vercel.app/e/${response.data.data.id}`
-
-      window.addEventListener('message', event => {
-        if (event.origin === targetDomain) {
-          console.log('Pesan berhasil diproses oleh Frontend 2:', event.data)
-        } else {
-          console.warn('Respons dari origin yang tidak sah:', event.origin)
-        }
-      })
       setTimeout(() => {
         window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
         router.push(targetDomain)
