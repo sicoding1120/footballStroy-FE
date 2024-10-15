@@ -32,8 +32,9 @@ const SignIn = () => {
 
       const accessToken = response.data.data.access_token
       const targetDomain = `https://footballstorydash.vercel.app/e/${response.data.data.id}`
+      
+      window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
       setTimeout(() => {
-        window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
         router.push(targetDomain)
       }, 2000)
     } catch (error: any) {
