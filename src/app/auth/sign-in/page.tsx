@@ -30,12 +30,11 @@ const SignIn = () => {
       const response = await axiosInstance.post('/auth/login', form.getValues())
       toast.success('Sign In Success')
 
-      const accessToken = response.data.data.access_token
-      const targetDomain = `https://footballstorydash.vercel.app/e/${response.data.data.id}`
-      
+      const accessToken = await response.data.data.access_token
       window.postMessage(accessToken, 'https://footballstorydash.vercel.app')
       setTimeout(() => {
-        router.push(targetDomain)
+        router.push(`https://footballstorydash.vercel.app/e/${response.data.data.id}`
+)
       }, 2000)
     } catch (error: any) {
       if (error.response) {
