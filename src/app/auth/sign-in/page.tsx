@@ -31,6 +31,15 @@ const SignIn = () => {
       toast.success('Sign In Success')
 
       const accessToken = await response.data.data.access_token
+      
+      if (window.opener) {
+        window.opener.postMessage(
+          { token: accessToken },
+          'https://footballstorydash.vercel.app'
+        )
+        // Setelah mengirim token, Anda bisa menutup jendela pop-up
+        window.close()
+      }
 
       setTimeout(() => {
         router.push(
