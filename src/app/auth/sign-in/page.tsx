@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/navigation'
 import CryptoJS from 'crypto-js'
+import { encode } from 'punycode'
 
 const SignIn = () => {
   const router = useRouter()
@@ -43,7 +44,7 @@ const SignIn = () => {
         router.push(
           `https://footballstorydash.vercel.app/e/${
             response.data.data.id
-          }?$f0th$s^5&*28#@8^#y&^##$%#=${encodeURIComponent(encCode)}`
+          }?status=${encode("success")}?hash=${encodeURIComponent(encCode)}`
         )
       }, 2000)
     } catch (error: any) {
