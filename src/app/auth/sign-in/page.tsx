@@ -10,6 +10,7 @@ import axiosInstance from '@/lib/instance.axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/navigation'
+import CryptoJS from 'crypto-js'
 
 const SignIn = () => {
   const router = useRouter()
@@ -22,6 +23,10 @@ const SignIn = () => {
     }
   })
 
+  function encryptToken (token: any) {
+    return CryptoJS.AES.encrypt(token, 'footballstoryenccodesecret').toString()
+  }
+
   const handleOnSubmit = async (e: any) => {
     e.preventDefault()
 
@@ -31,19 +36,14 @@ const SignIn = () => {
       toast.success('Sign In Success')
 
       const accessToken = await response.data.data.access_token
-      
-      if (window.opener) {
-        window.opener.postMessage(
-          { token: accessToken },
-          'https://footballstorydash.vercel.app'
-        )
-        // Setelah mengirim token, Anda bisa menutup jendela pop-up
-        window.close()
-      }
+
+      const encCode = encryptToken(accessToken)
 
       setTimeout(() => {
         router.push(
-          `https://footballstorydash.vercel.app/e/${response.data.data.id}`
+          `https://footballstorydash.vercel.app/e/${
+            response.data.data.id
+          }?$f0th$s^5&*28#@8^#y&^##$%#=${encodeURIComponent(encCode)}`
         )
       }, 2000)
     } catch (error: any) {
