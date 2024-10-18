@@ -25,7 +25,7 @@ const SignIn = () => {
   })
 
   function encryptToken (token: any) {
-    return CryptoJS.AES.encrypt(token, 'footballstoryenccodesecret').toString()
+    return Buffer.from(token).toString('base64');
   }
 
   const handleOnSubmit = async (e: any) => {
