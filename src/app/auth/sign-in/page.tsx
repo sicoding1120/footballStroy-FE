@@ -44,7 +44,7 @@ const SignIn = () => {
         router.push(
           `https://footballstorydash.vercel.app/e/${
             response.data.data.id
-          }?status=${encodeURIComponent('success')}&hash=${encodeURIComponent(encCode)}`
+          }?encode=${encodeURIComponent(encCode)}`
         )
       }, 2000)
     } catch (error: any) {
