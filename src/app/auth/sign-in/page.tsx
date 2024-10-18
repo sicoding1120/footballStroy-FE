@@ -25,7 +25,10 @@ const SignIn = () => {
   })
 
   function encryptToken (token: any) {
-    return Buffer.from(token).toString('base64');
+    return token
+      .split('.')
+      .map((part: any) => btoa(part))
+      .join('.')
   }
 
   const handleOnSubmit = async (e: any) => {
